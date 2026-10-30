@@ -45,10 +45,10 @@ FONT = {
     "S": (" ███", "█   ", " ██ ", "   █", "███ "),
     "T": ("█████", "  █  ", "  █  ", "  █  ", "  █  "),
     "U": ("█  █", "█  █", "█  █", "█  █", " ██ "),
-    "V": ("█  █", "█  █", "█  █", " █ █ ", "  █  "),
+    "V": ("█   █", "█   █", "█   █", " █ █ ", "  █  "),
     "W": ("█   █", "█   █", "█ █ █", "██ ██", "█   █"),
-    "X": ("█  █", " █ █ ", "  █  ", " █ █ ", "█  █"),
-    "Y": ("█  █", " █ █ ", "  █  ", "  █  ", "  █  "),
+    "X": ("█   █", " █ █ ", "  █  ", " █ █ ", "█   █"),
+    "Y": ("█   █", " █ █ ", "  █  ", "  █  ", "  █  "),
     "Z": ("████", "   █", "  █ ", " █  ", "████"),
     "0": (" ██ ", "█  █", "█  █", "█  █", " ██ "),
     "1": (" █ ", "██ ", " █ ", " █ ", "███"),
@@ -68,6 +68,7 @@ FONT = {
     "-": ("    ", "    ", "████", "    ", "    "),
     "+": ("   ", " █ ", "███", " █ ", "   "),
     "'": ("█", "█", " ", " ", " "),
+    '"': ("█ █", "█ █", "   ", "   ", "   "),
     ":": (" ", "█", " ", "█", " "),
     "/": ("   █", "  █ ", " █  ", "█   ", "    "),
     "_": ("    ", "    ", "    ", "    ", "████"),
@@ -110,24 +111,43 @@ def _read_netpbm(path):
                 j += 1
             tokens.append(data[i:j])
             i = j
+    if len(tokens) < 4:
+        raise ValueError("truncated Netpbm header: {}".format(path))
     magic = tokens[0].decode()
     if magic not in ("P2", "P3", "P5", "P6"):
         raise ValueError("not a Netpbm file: {}".format(path))
     width, height, maxval = int(tokens[1]), int(tokens[2]), int(tokens[3])
+    if width < 1 or height < 1 or maxval < 1:
+        raise ValueError("invalid Netpbm header: {}".format(path))
     count = width * height
     if magic in ("P2", "P3"):
         nums = list(map(int, data[i:].split()))
+        need = count * 3 if magic == "P3" else count
+        if len(nums) < need:
+            raise ValueError("truncated Netpbm data: {}".format(path))
         if magic == "P3":
             nums = [round(0.299 * nums[k] + 0.587 * nums[k + 1] + 0.114 * nums[k + 2])
                     for k in range(0, count * 3, 3)]
         gray = nums[:count]
     else:
-        raw = data[i + 1:i + 1 + count * (3 if magic == "P6" else 1)]
+        # Raw data starts after a single whitespace delimiter; a CRLF
+        # line ending counts as one delimiter, not two.
+        start = i + 2 if data[i:i + 2] == b"\r\n" else i + 1
+        channels = 3 if magic == "P6" else 1
+        sample_bytes = 2 if maxval > 255 else 1
+        need = count * channels * sample_bytes
+        raw = data[start:start + need]
+        if len(raw) < need:
+            raise ValueError("truncated Netpbm data: {}".format(path))
+        if sample_bytes == 2:
+            samples = [raw[k] * 256 + raw[k + 1] for k in range(0, need, 2)]
+        else:
+            samples = list(raw)
         if magic == "P6":
-            gray = [round(0.299 * raw[k] + 0.587 * raw[k + 1] + 0.114 * raw[k + 2])
+            gray = [round(0.299 * samples[k] + 0.587 * samples[k + 1] + 0.114 * samples[k + 2])
                     for k in range(0, count * 3, 3)]
         else:
-            gray = list(raw[:count])
+            gray = samples[:count]
     scale = 255.0 / maxval if maxval != 255 else 1.0
     rows = [[round(gray[y * width + x] * scale) for x in range(width)]
             for y in range(height)]

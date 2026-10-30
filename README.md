@@ -1,3 +1,5 @@
+![banner](assets/banner.png)
+
 # ASCII-Art-Generator
 
 ASCII generated art: block-letter text banners and image-to-ASCII conversion.
@@ -21,6 +23,7 @@ Output:
 ```
 
 The font covers A-Z, 0-9 and basic punctuation (`.,!?-+'":/*_#` and space).
+Input is uppercased first; any other character renders as a space.
 
 Shell startup example (`.bashrc` / `.zshrc`):
 
