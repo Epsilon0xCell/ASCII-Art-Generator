@@ -1,11 +1,20 @@
-![banner](assets/banner.png)
+![Introduction banner](intro-banner.png)
 
 # ASCII-Art-Generator
 
 ASCII generated art: block-letter text banners and image-to-ASCII conversion.
 Small enough to include in a shell start config.
 
+![Wordmark banner](banner.png)
+
+<img src="assets-scene.svg" alt="Animated themed scene" width="100%">
+
+> Crock label, tied on with twine: the bench below is set out course by course, banners first, then photographs, then the library shelf.
+
+<img src="sep-heavy.svg" alt="" width="100%">
+
 ## Text banners
+
 
 ```sh
 python3 ascii_art.py banner "HELLO"
@@ -31,7 +40,10 @@ Shell startup example (`.bashrc` / `.zshrc`):
 python3 ~/ASCII-Art-Generator/ascii_art.py banner "WELCOME"
 ```
 
+<img src="sep-light.svg" alt="" width="100%">
+
 ## Image to ASCII
+
 
 ```sh
 python3 ascii_art.py image photo.png
@@ -44,7 +56,10 @@ python3 ascii_art.py image photo.png --width 120 --invert
   Without Pillow, Netpbm files (PGM/PPM, plain or raw) are read natively,
   so the tool still works with zero dependencies.
 
+<img src="sep-heavy.svg" alt="" width="100%">
+
 ## Library use
+
 
 ```python
 from ascii_art import banner, image_to_ascii
@@ -53,6 +68,9 @@ print(banner("CODE"))
 print(image_to_ascii("photo.png", width=100))
 ```
 
+<img src="sep-light.svg" alt="" width="100%">
+
 ## License
+
 
 MIT (see LICENSE).
