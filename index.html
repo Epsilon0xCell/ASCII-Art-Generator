@@ -1,60 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ASCII Art Generator: what it is, how it runs, where it stops</title>
-<meta name="description" content="ASCII Art Generator is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.">
-<style>
-:root {
-  --bg: #0a120e; --panel: #101c16; --ink: #e6f0e2;
-  --mut: #15251d;
-  --acc: #a8e05c; --acc2: #f0be54;
-  --line: #101c16;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink);
-  font-family: ' Gill Sans', 'Segoe UI', sans-serif; line-height: 1.55; }
-code, pre, .mono { font-family: 'SF Mono', monospace; }
-a { color: var(--acc2); }
-.hero { padding: 3rem 6vw 1rem; }
-.hero img.banner { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; }
-.logo { width: 92px; height: 92px; border-radius: 18px;
-  border: 1px solid var(--line); }
-h1 { font-size: 2.4rem; margin: 0.4em 0 0.1em; }
-h2 { border-bottom: 2px solid var(--acc); padding-bottom: 0.2em;
-  margin-top: 2em; }
-.lede { font-size: 1.15rem; max-width: 62ch; }
-main { padding: 0 6vw 3rem; max-width: 1180px; margin: 0 auto; }
-.grid { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-.card { background: var(--panel); border: 1px solid var(--line);
-  border-radius: 12px; padding: 1rem 1.2rem; }
-.card.pop { animation: rise 0.7s ease both; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; } }
-pre.code { background: #101014; color: #e8e6df; padding: 1rem 1.2rem;
-  border-radius: 12px; overflow-x: auto; font-size: 0.86rem;
-  border-left: 5px solid var(--acc); }
-table { border-collapse: collapse; width: 100%; }
-td, th { border-bottom: 1px solid var(--line); padding: 0.45rem 0.6rem;
-  text-align: left; }
-.shots { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.shots img { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; background: #f4f1e8; }
-footer { padding: 2rem 6vw; border-top: 1px solid var(--line);
-  color: var(--mut); }
-.rail { display: flex; gap: 1.2rem; align-items: flex-start; }
-.rail nav { position: sticky; top: 1rem; min-width: 180px; }
-@media (max-width: 760px) { .rail { flex-direction: column; }
-  .rail nav { position: static; } }
-@media (prefers-reduced-motion: reduce) {
-  .card.pop { animation: none; } * { scroll-behavior: auto; } }
-</style>
-</head>
-<body class="layout-rail">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASCII Art Generator: what it is, how it runs, where it stops</title><style>@font-face{font-family:'Abhaya Libre';src:url('fonts/AbhayaLibre.ttf') format('truetype');font-weight:normal;font-display:swap}@font-face{font-family:'Abhaya Libre';src:url('fonts/AbhayaLibre-Bold.ttf') format('truetype');font-weight:bold;font-display:swap}@font-face{font-family:'Bitter';src:url('fonts/Bitter.ttf') format('truetype');font-weight:normal;font-display:swap}
+:root{--tom:#c43e28;--bas:#547a3e;--flour:#f6eedc;--wood:#7a5230;--woodd:#54361e}
+*{box-sizing:border-box}body{margin:0;background:var(--flour);color:#33241a;font-family:'Bitter',serif;line-height:1.62}
+body{background-image:repeating-linear-gradient(transparent,transparent 30px,rgba(84,54,30,.05) 31px)}
+h1,h2,h3{font-family:'Abhaya Libre',serif;color:var(--tom);border-top:2px solid var(--tom);border-bottom:2px solid var(--tom);padding:.18em .1em}
+a{color:var(--bas)}a:visited{color:#7a6a3a}a::before{content:'\2766 ';color:var(--bas)}
+a:hover::before,a:hover{text-shadow:0 0 8px rgba(84,122,62,.65)}
+header.valance{background:repeating-linear-gradient(90deg,var(--tom) 0 74px,var(--flour) 74px 148px);padding:10px 0 0;border-bottom:10px solid var(--woodd)}
+header.valance .sign{background:var(--flour);max-width:1060px;margin:26px auto 0;padding:6px 22px;text-align:center}
+header.valance .sign p{font-family:'Abhaya Libre',serif;font-size:1.5rem;color:var(--tom);margin:.2em}
+main.cardbox{max-width:1060px;margin:0 auto;padding:26px 18px 60px}
+section,article,div.card{background:#fffdf6;border:1px solid #d8c9a8;border-left:6px solid var(--tom);border-radius:4px;padding:20px 24px;margin:26px 0;position:relative;background-image:radial-gradient(circle at 22px 10px,transparent 5px,#e4d6b8 6px,transparent 7px),radial-gradient(circle at calc(100% - 22px) 10px,transparent 5px,#e4d6b8 6px,transparent 7px)}
+pre,code{background:#3a2413;color:#f6eedc;border-radius:4px}
+pre{padding:16px;border-top:6px double var(--flour);overflow:auto}
+table{border-collapse:collapse}td,th{border:1px solid #c9b586;padding:6px 10px}
+img{max-width:100%}
+.hero-card{text-align:center}.hero-card img{border:6px solid var(--woodd);border-radius:4px}
+.btnrow{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:16px 0}
+a.btn,button{background:var(--tom);color:var(--flour);border:2px dotted var(--woodd);outline:2px solid var(--flour);outline-offset:-6px;border-radius:9px;font-family:'Abhaya Libre',serif;font-size:1.1rem}
+a.btn::before{content:''}
+a.btn:hover,button:hover{filter:brightness(1.18);box-shadow:0 -8px 14px -8px rgba(246,238,220,.9)}
+a.btn:active,button:active{transform:translateY(2px)}
+.divider-crocks{text-align:center;font-size:1.3rem;color:var(--bas);letter-spacing:.6em;margin:8px 0}
+footer{background:var(--wood);color:var(--flour);padding:22px 18px;text-align:center}
+footer a{color:var(--flour)}
+.pinrule{height:12px;background:var(--woodd);border-radius:6px;max-width:520px;margin:10px auto}
+</style></head>
+<body>
+<header class="valance"><div class="sign"><p>ASCII-Art-Generator</p></div></header>
+<main class="cardbox">
+<section class="hero-card"><img src="themed-intro.png" alt="Dawn at the spice stall: a raised tin pours a thread of spice into the open tin below">
+<h1>ASCII Art Generator, served from the bench</h1>
+<p>The stall is open. Pull a card from the box: first what it is, then the banners, then the photographs, then the shelf and the library.</p>
+<div class="btnrow"><a class="btn" href="https://github.com/Epsilon0xCell/ASCII-Art-Generator">The repository</a></div>
+</section>
+<div class="divider-crocks" aria-hidden="true">&#9961; &#9961; &#9961;</div>
+
 <!-- This page exists for ASCII-Art-Generator alone: the layout (sidebar-rail),
      the colors, and the type were picked for this project, not
      shared with the other project pages. The code block below is
@@ -147,5 +129,24 @@ SOFTWARE.</code></pre>
   repo's counts, the code is the repo's code, and the gaps are the
   repo's gaps.</p>
 </footer>
-</body>
-</html>
+
+<section><h2>Cards from the box: the commands, verbatim</h2>
+<h3>Text Banners</h3>
+<pre>python3 ascii_art.py banner "HELLO"
+python3 ascii_art.py banner --double "HI"</pre>
+<p>The built in font covers A to Z, 0 to 9, and basic punctuation (. , ! ? - + ' &quot; : / * _ # and space). Input is uppercased first; any other character renders as a space.</p>
+<h3>Image to ASCII</h3>
+<pre>python3 ascii_art.py image photo.png
+python3 ascii_art.py image photo.png --width 120 --invert</pre>
+<p>Output width defaults to 80 characters; height scales automatically with terminal character aspect correction. Pillow reads PNG, JPEG, GIF, BMP and more when installed; without Pillow, Netpbm PGM and PPM, plain or raw, are read natively, so the tool still works with zero dependencies.</p>
+<h3>Shelf Use in a Shell Startup</h3>
+<pre>python3 ~/ASCII-Art-Generator/ascii_art.py banner "WELCOME"</pre>
+<p>Small enough to drop into a shell startup file (.bashrc and .zshrc), so a welcome banner prints when a terminal opens.</p>
+<h3>Library Use</h3>
+<pre>from ascii_art import banner, image_to_ascii
+banner("CODE")
+image_to_ascii("photo.png", width=100)</pre>
+</section>
+</main><footer><div class="pinrule"></div><p>ASCII Art Generator is one of my projects. Licensed under MIT (see LICENSE in the repository).</p></footer>
+
+</body></html>
