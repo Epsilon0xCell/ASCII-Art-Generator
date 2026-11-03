@@ -1,15 +1,18 @@
-![Introduction banner](intro-banner.png)
+![ASCII-Art-Generator introduction, wordless](intro-banner.png)
 
 # ASCII-Art-Generator
+
+**The Phosphor Blockworks**
+_Pictures rebuilt block by block, in green light on charcoal._
 
 ASCII generated art: block-letter text banners and image-to-ASCII conversion.
 Small enough to include in a shell start config.
 
-![Wordmark banner](banner.png)
+![ASCII-Art-Generator banner](banner.png)
 
-<img src="assets-scene.svg" alt="Animated themed scene" width="100%">
+<img src="assets-scene.svg" alt="ASCII-Art-Generator animated scene" width="100%">
 
-> Crock label, tied on with twine: the bench below is set out course by course, banners first, then photographs, then the library shelf.
+> Bench note, stamped in phosphor: the bench below is laid out block by block, banners first, then photographs, then the library shelf.
 
 <img src="sep-heavy.svg" alt="" width="100%">
 
