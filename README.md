@@ -1,4 +1,4 @@
-![ASCII-Art-Generator introduction, wordless](intro-banner.png)
+<p align="center"><img src="intro-banner.png" alt="ASCII-Art-Generator introduction, wordless" width="800"></p>
 
 # ASCII-Art-Generator
 
@@ -8,11 +8,19 @@ _Pictures rebuilt block by block, in green light on charcoal._
 ASCII generated art: block-letter text banners and image-to-ASCII conversion.
 Small enough to include in a shell start config.
 
-![ASCII-Art-Generator banner](banner.png)
+<p align="center"><img src="banner.png" alt="ASCII-Art-Generator banner" width="700"></p>
 
 <img src="assets-scene.svg" alt="ASCII-Art-Generator animated scene" width="100%">
 
 > Bench note, stamped in phosphor: the bench below is laid out block by block, banners first, then photographs, then the library shelf.
+
+## Get the tool
+
+```sh
+git clone https://github.com/Epsilon0xCell/ASCII-Art-Generator.git
+```
+
+No required dependencies: images are read with Pillow when it is installed, and Netpbm files are read natively without it (see Image to ASCII).
 
 <img src="sep-heavy.svg" alt="" width="100%">
 
