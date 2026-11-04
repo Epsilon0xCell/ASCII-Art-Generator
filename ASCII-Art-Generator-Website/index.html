@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ASCII Art Generator: what it is, how it runs, where it stops</title><style>@font-face{font-family:'Abhaya Libre';src:url('fonts/AbhayaLibre.ttf') format('truetype');font-weight:normal;font-display:swap}@font-face{font-family:'Abhaya Libre';src:url('fonts/AbhayaLibre-Bold.ttf') format('truetype');font-weight:bold;font-display:swap}@font-face{font-family:'Bitter';src:url('fonts/Bitter.ttf') format('truetype');font-weight:normal;font-display:swap}
+<title>ASCII Art Generator: what it is, how it runs, where it stops</title><style>@font-face{font-family:'Major Mono Display';src:url('fonts/MajorMonoDisplay.ttf') format('truetype');font-weight:normal;font-display:swap}@font-face{font-family:'Bitter';src:url('fonts/Bitter.ttf') format('truetype');font-weight:normal;font-display:swap}
 :root{--tom:#39ff6a;--bas:#86efac;--flour:#14161a;--wood:#23262c;--woodd:#2e7d43}
 *{box-sizing:border-box}body{margin:0;background:var(--flour);color:#e8e4d8;font-family:'Bitter',serif;line-height:1.62}
 body{background-image:repeating-linear-gradient(transparent,transparent 30px,rgba(57,255,106,.05) 31px)}
-h1,h2,h3{font-family:'Abhaya Libre',serif;color:var(--tom);border-top:2px solid var(--tom);border-bottom:2px solid var(--tom);padding:.18em .1em}
+h1,h2,h3{font-family:'Major Mono Display',monospace;color:var(--tom);border-top:2px solid var(--tom);border-bottom:2px solid var(--tom);padding:.18em .1em}
 a{color:var(--bas)}a:visited{color:#6ee7a0}a::before{content:'\2766 ';color:var(--bas)}
 a:hover::before,a:hover{text-shadow:0 0 8px rgba(57,255,106,.65)}
 header.valance{background:repeating-linear-gradient(90deg,var(--tom) 0 74px,var(--flour) 74px 148px);padding:10px 0 0;border-bottom:10px solid var(--woodd)}
 header.valance .sign{background:var(--flour);max-width:1060px;margin:26px auto 0;padding:6px 22px;text-align:center}
-header.valance .sign p{font-family:'Abhaya Libre',serif;font-size:1.5rem;color:var(--tom);margin:.2em}
+header.valance .sign p{font-family:'Major Mono Display',monospace;font-size:1.5rem;color:var(--tom);margin:.2em}
 main.cardbox{max-width:1060px;margin:0 auto;padding:26px 18px 60px}
 section,article,div.card{background:#1d2026;border:1px solid #33373f;border-left:6px solid var(--tom);border-radius:4px;padding:20px 24px;margin:26px 0;position:relative;background-image:radial-gradient(circle at 22px 10px,transparent 5px,#2c3038 6px,transparent 7px),radial-gradient(circle at calc(100% - 22px) 10px,transparent 5px,#2c3038 6px,transparent 7px)}
 pre,code{background:#0c0e11;color:#f6eedc;border-radius:4px}
@@ -18,7 +18,7 @@ table{border-collapse:collapse}td,th{border:1px solid #3a3f47;padding:6px 10px}
 img{max-width:100%}
 .hero-card{text-align:center}.hero-card img{border:6px solid var(--woodd);border-radius:4px}
 .btnrow{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:16px 0}
-a.btn,button{background:var(--tom);color:var(--flour);border:2px dotted var(--woodd);outline:2px solid var(--flour);outline-offset:-6px;border-radius:9px;font-family:'Abhaya Libre',serif;font-size:1.1rem}
+a.btn,button{background:var(--tom);color:var(--flour);border:2px dotted var(--woodd);outline:2px solid var(--flour);outline-offset:-6px;border-radius:9px;font-family:'Major Mono Display',monospace;font-size:1.1rem}
 a.btn::before{content:''}
 a.btn:hover,button:hover{filter:brightness(1.18);box-shadow:0 -8px 14px -8px rgba(57,255,106,.9)}
 a.btn:active,button:active{transform:translateY(2px)}
